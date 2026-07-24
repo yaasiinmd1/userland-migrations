@@ -1,5 +1,7 @@
 {
     "recommendations": [
-      "biomejs.biome"
+      "biomejs.biome",
+      "jovery90.vscode-user-format-commands",
+      "donjayamanne.git-extension-pack"
     ]
 }
