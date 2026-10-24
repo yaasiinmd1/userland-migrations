@@ -30,13 +30,12 @@ Each codemod resides in its own directory under `recipes/` and should include:
 
 | File | Purpose |
 |------|---------|
-| `README.md` | Description, purpose, and usage instructions |
+| `README.md` | Description, purpose, and usage instructions — must follow the [README writing guide](./docs/writing-a-readme.md), as it is published as an article on [nodejs.org/learn](https://nodejs.org/learn) |
 | `package.json` | Package manifest |
 | `src/workflow.ts` | Main entry point using the `jssg` codemod API |
 | `codemod.yml` | Codemod manifest file |
 | `workflow.yml` | Workflow definition file |
 | `tests/` | Test suite using `jssg` testing utilities |
-| `tsconfig.json` | TypeScript configuration |
 
 > [!NOTE]
 > The `workflow.ts` naming is conventional but can be changed as needed. Ensure to update the `workflow.yml` accordingly. We use `workflow` when there are one step codemods; for multi-step codemods, consider using `what-to-change.ts` or similar descriptive names.
@@ -147,6 +146,20 @@ keywords:
 registry:
   access: public
   visibility: public
+```
+
+**`package.json` example:**
+```json
+{
+	"name": "@nodejs/<codemod-name>",
+	"type": "module",
+	"scripts": {
+		"test": "npx codemod jssg test -l typescript ./src/workflow.ts"
+	},
+	"devDependencies": {
+		"@nodejs/codemod-utils": "^*"
+	}
+}
 ```
 
 ## Useful Resources
